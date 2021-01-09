@@ -42,7 +42,6 @@ sub n {
 n(t(param("x"), param("y")));
 
 
-
 level12@SnowCrash:~$ echo "getflag > /tmp/token" > /tmp/GETFLAG
 
 level12@SnowCrash:~$ cat /tmp/GETFLAG
