@@ -1,0 +1,254 @@
+guest:
+
+level14@SnowCrash:~$ ls -la
+total 12
+dr-x------ 1 level14 level14  100 Mar  5  2016 .
+d--x--x--x 1 root    users    340 Aug 30  2015 ..
+-r-x------ 1 level14 level14  220 Apr  3  2012 .bash_logout
+-r-x------ 1 level14 level14 3518 Aug 30  2015 .bashrc
+-r-x------ 1 level14 level14  675 Apr  3  2012 .profile
+
+level14@SnowCrash:~$ find / -user flag14 2>/dev/null
+
+level14@SnowCrash:~$ find / -name flag14 2>/dev/null
+
+
+
+
+
+
+
+level14@SnowCrash:~$ getflag
+Check flag.Here is your token :
+Nope there is no token here for you sorry. Try again :)
+
+level14@SnowCrash:~$ getflag
+Check flag.Here is your token :
+Nope there is no token here for you sorry. Try again :)
+level14@SnowCrash:~$ ltrace getflag
+__libc_start_main(0x8048946, 1, 0xbffff7a4, 0x8048ed0, 0x8048f40 <unfinished ...>
+ptrace(0, 0, 1, 0, 0)                                                                               = -1
+puts("You should not reverse this"You should not reverse this
+)                                                                 = 28
++++ exited (status 1) +++
+
+level14@SnowCrash:~$ gdb getflag
+GNU gdb (Ubuntu/Linaro 7.4-2012.04-0ubuntu2.1) 7.4-2012.04
+Copyright (C) 2012 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "i686-linux-gnu".
+For bug reporting instructions, please see:
+<http://bugs.launchpad.net/gdb-linaro/>...
+Reading symbols from /bin/getflag...(no debugging symbols found)...done.
+(gdb) disass main
+Dump of assembler code for function main:
+
+	 0x08048946 <+0>:	push   %ebp
+   0x08048947 <+1>:	mov    %esp,%ebp
+   0x08048949 <+3>:	push   %ebx
+   0x0804894a <+4>:	and    $0xfffffff0,%esp
+   0x0804894d <+7>:	sub    $0x120,%esp
+   0x08048953 <+13>:	mov    %gs:0x14,%eax
+   0x08048959 <+19>:	mov    %eax,0x11c(%esp)
+   0x08048960 <+26>:	xor    %eax,%eax
+   0x08048962 <+28>:	movl   $0x0,0x10(%esp)
+   0x0804896a <+36>:	movl   $0x0,0xc(%esp)
+   0x08048972 <+44>:	movl   $0x1,0x8(%esp)
+   0x0804897a <+52>:	movl   $0x0,0x4(%esp)
+   0x08048982 <+60>:	movl   $0x0,(%esp)
+   0x08048989 <+67>:	call   0x8048540 <ptrace@plt>
+   0x0804898e <+72>:	test   %eax,%eax
+   0x08048990 <+74>:	jns    0x80489a8 <main+98>
+   0x08048992 <+76>:	movl   $0x8048fa8,(%esp)
+   0x08048999 <+83>:	call   0x80484e0 <puts@plt>
+
+
+	 ...
+	 
+	 0x08048b0a <+452>:	cmp    $0xbbe,%eax
+   0x08048b0f <+457>:	je     0x8048ccb <main+901>
+   0x08048b15 <+463>:	cmp    $0xbbe,%eax
+   0x08048b1a <+468>:	ja     0x8048b68 <main+546>
+   0x08048b1c <+470>:	cmp    $0xbba,%eax
+   0x08048b21 <+475>:	je     0x8048c3b <main+757>
+   0x08048b27 <+481>:	cmp    $0xbba,%eax
+   0x08048b2c <+486>:	ja     0x8048b4d <main+519>
+   0x08048b2e <+488>:	cmp    $0xbb8,%eax
+   0x08048b33 <+493>:	je     0x8048bf3 <main+685>
+   0x08048b39 <+499>:	cmp    $0xbb8,%eax
+   0x08048b3e <+504>:	ja     0x8048c17 <main+721>
+   0x08048b44 <+510>:	test   %eax,%eax
+   0x08048b46 <+512>:	je     0x8048bc6 <main+640>
+   0x08048b48 <+514>:	jmp    0x8048e06 <main+1216>
+   0x08048b4d <+519>:	cmp    $0xbbc,%eax
+   0x08048b52 <+524>:	je     0x8048c83 <main+829>
+   0x08048b58 <+530>:	cmp    $0xbbc,%eax
+   0x08048b5d <+535>:	ja     0x8048ca7 <main+865>
+   0x08048b63 <+541>:	jmp    0x8048c5f <main+793>
+   0x08048b68 <+546>:	cmp    $0xbc2,%eax
+   0x08048b6d <+551>:	je     0x8048d5b <main+1045>
+   0x08048b73 <+557>:	cmp    $0xbc2,%eax
+   0x08048b78 <+562>:	ja     0x8048b95 <main+591>
+   0x08048b7a <+564>:	cmp    $0xbc0,%eax
+   0x08048b7f <+569>:	je     0x8048d13 <main+973>
+   0x08048b85 <+575>:	cmp    $0xbc0,%eax
+   0x08048b8a <+580>:	ja     0x8048d37 <main+1009>
+   0x08048b90 <+586>:	jmp    0x8048cef <main+937>
+   0x08048b95 <+591>:	cmp    $0xbc4,%eax
+   0x08048b9a <+596>:	je     0x8048da3 <main+1117>
+   0x08048ba0 <+602>:	cmp    $0xbc4,%eax
+   0x08048ba5 <+607>:	jb     0x8048d7f <main+1081>
+   0x08048bab <+613>:	cmp    $0xbc5,%eax
+   0x08048bb0 <+618>:	je     0x8048dc4 <main+1150>
+   0x08048bb6 <+624>:	cmp    $0xbc6,%eax
+   0x08048bbb <+629>:	je     0x8048de5 <main+1183>
+   0x08048bc1 <+635>:	jmp    0x8048e06 <main+1216>
+
+	 ...
+
+	 0x08048c0d <+711>:	call   0x8048530 <fputs@plt>
+   0x08048c12 <+716>:	jmp    0x8048e2f <main+1257>
+   0x08048c17 <+721>:	mov    0x804b060,%eax
+   0x08048c1c <+726>:	mov    %eax,%ebx
+   0x08048c1e <+728>:	movl   $0x80490cc,(%esp)
+   0x08048c25 <+735>:	call   0x8048604 <ft_des>
+   0x08048c2a <+740>:	mov    %ebx,0x4(%esp)
+   0x08048c2e <+744>:	mov    %eax,(%esp)
+   0x08048c31 <+747>:	call   0x8048530 <fputs@plt>
+   0x08048c36 <+752>:	jmp    0x8048e2f <main+1257>
+   0x08048c3b <+757>:	mov    0x804b060,%eax
+   0x08048c40 <+762>:	mov    %eax,%ebx
+   0x08048c42 <+764>:	movl   $0x80490e6,(%esp)
+   0x08048c49 <+771>:	call   0x8048604 <ft_des>
+   0x08048c4e <+776>:	mov    %ebx,0x4(%esp)
+   0x08048c52 <+780>:	mov    %eax,(%esp)
+   0x08048c55 <+783>:	call   0x8048530 <fputs@plt>
+   0x08048c5a <+788>:	jmp    0x8048e2f <main+1257>
+   0x08048c5f <+793>:	mov    0x804b060,%eax
+   0x08048c64 <+798>:	mov    %eax,%ebx
+   0x08048c66 <+800>:	movl   $0x8049100,(%esp)
+   0x08048c6d <+807>:	call   0x8048604 <ft_des>
+   0x08048c72 <+812>:	mov    %ebx,0x4(%esp)
+   0x08048c76 <+816>:	mov    %eax,(%esp)
+   0x08048c79 <+819>:	call   0x8048530 <fputs@plt>
+   0x08048c7e <+824>:	jmp    0x8048e2f <main+1257>
+   0x08048c83 <+829>:	mov    0x804b060,%eax
+   0x08048c88 <+834>:	mov    %eax,%ebx
+   0x08048c8a <+836>:	movl   $0x804911a,(%esp)
+   0x08048c91 <+843>:	call   0x8048604 <ft_des>
+   0x08048c96 <+848>:	mov    %ebx,0x4(%esp)
+   0x08048c9a <+852>:	mov    %eax,(%esp)
+   0x08048c9d <+855>:	call   0x8048530 <fputs@plt>
+   0x08048ca2 <+860>:	jmp    0x8048e2f <main+1257>
+   0x08048ca7 <+865>:	mov    0x804b060,%eax
+   0x08048cac <+870>:	mov    %eax,%ebx
+   0x08048cae <+872>:	movl   $0x8049134,(%esp)
+   0x08048cb5 <+879>:	call   0x8048604 <ft_des>
+   0x08048cba <+884>:	mov    %ebx,0x4(%esp)
+   0x08048cbe <+888>:	mov    %eax,(%esp)
+   0x08048cc1 <+891>:	call   0x8048530 <fputs@plt>
+   0x08048cc6 <+896>:	jmp    0x8048e2f <main+1257>
+   0x08048ccb <+901>:	mov    0x804b060,%eax
+   0x08048cd0 <+906>:	mov    %eax,%ebx
+   0x08048cd2 <+908>:	movl   $0x804914e,(%esp)
+   0x08048cd9 <+915>:	call   0x8048604 <ft_des>
+   0x08048cde <+920>:	mov    %ebx,0x4(%esp)
+   0x08048ce2 <+924>:	mov    %eax,(%esp)
+   0x08048ce5 <+927>:	call   0x8048530 <fputs@plt>
+   0x08048cea <+932>:	jmp    0x8048e2f <main+1257>
+   0x08048cef <+937>:	mov    0x804b060,%eax
+   0x08048cf4 <+942>:	mov    %eax,%ebx
+   0x08048cf6 <+944>:	movl   $0x8049168,(%esp)
+   0x08048cfd <+951>:	call   0x8048604 <ft_des>
+   0x08048d02 <+956>:	mov    %ebx,0x4(%esp)
+   0x08048d06 <+960>:	mov    %eax,(%esp)
+   0x08048d09 <+963>:	call   0x8048530 <fputs@plt>
+   0x08048d0e <+968>:	jmp    0x8048e2f <main+1257>
+   0x08048d13 <+973>:	mov    0x804b060,%eax
+   0x08048d18 <+978>:	mov    %eax,%ebx
+   0x08048d1a <+980>:	movl   $0x8049182,(%esp)
+   0x08048d21 <+987>:	call   0x8048604 <ft_des>
+   0x08048d26 <+992>:	mov    %ebx,0x4(%esp)
+   0x08048d2a <+996>:	mov    %eax,(%esp)
+   0x08048d2d <+999>:	call   0x8048530 <fputs@plt>
+   0x08048d32 <+1004>:	jmp    0x8048e2f <main+1257>
+   0x08048d37 <+1009>:	mov    0x804b060,%eax
+   0x08048d3c <+1014>:	mov    %eax,%ebx
+   0x08048d3e <+1016>:	movl   $0x804919c,(%esp)
+   0x08048d45 <+1023>:	call   0x8048604 <ft_des>
+   0x08048d4a <+1028>:	mov    %ebx,0x4(%esp)
+   0x08048d4e <+1032>:	mov    %eax,(%esp)
+   0x08048d51 <+1035>:	call   0x8048530 <fputs@plt>
+   0x08048d56 <+1040>:	jmp    0x8048e2f <main+1257>
+   0x08048d5b <+1045>:	mov    0x804b060,%eax
+   0x08048d60 <+1050>:	mov    %eax,%ebx
+   0x08048d62 <+1052>:	movl   $0x80491b6,(%esp)
+   0x08048d69 <+1059>:	call   0x8048604 <ft_des>
+   0x08048d6e <+1064>:	mov    %ebx,0x4(%esp)
+   0x08048d72 <+1068>:	mov    %eax,(%esp)
+   0x08048d75 <+1071>:	call   0x8048530 <fputs@plt>
+   0x08048d7a <+1076>:	jmp    0x8048e2f <main+1257>
+   0x08048d7f <+1081>:	mov    0x804b060,%eax
+   0x08048d84 <+1086>:	mov    %eax,%ebx
+   0x08048d86 <+1088>:	movl   $0x80491d0,(%esp)
+   0x08048d8d <+1095>:	call   0x8048604 <ft_des>
+   0x08048d92 <+1100>:	mov    %ebx,0x4(%esp)
+   0x08048d96 <+1104>:	mov    %eax,(%esp)
+   0x08048d99 <+1107>:	call   0x8048530 <fputs@plt>
+   0x08048d9e <+1112>:	jmp    0x8048e2f <main+1257>
+   0x08048da3 <+1117>:	mov    0x804b060,%eax
+   0x08048da8 <+1122>:	mov    %eax,%ebx
+   0x08048daa <+1124>:	movl   $0x80491ea,(%esp)
+   0x08048db1 <+1131>:	call   0x8048604 <ft_des>
+   0x08048db6 <+1136>:	mov    %ebx,0x4(%esp)
+   0x08048dba <+1140>:	mov    %eax,(%esp)
+   0x08048dbd <+1143>:	call   0x8048530 <fputs@plt>
+   0x08048dc2 <+1148>:	jmp    0x8048e2f <main+1257>
+   0x08048dc4 <+1150>:	mov    0x804b060,%eax
+   0x08048dc9 <+1155>:	mov    %eax,%ebx
+   0x08048dcb <+1157>:	movl   $0x8049204,(%esp)
+   0x08048dd2 <+1164>:	call   0x8048604 <ft_des>
+   0x08048dd7 <+1169>:	mov    %ebx,0x4(%esp)
+   0x08048ddb <+1173>:	mov    %eax,(%esp)
+   0x08048dde <+1176>:	call   0x8048530 <fputs@plt>
+   0x08048de3 <+1181>:	jmp    0x8048e2f <main+1257>
+   0x08048de5 <+1183>:	mov    0x804b060,%eax
+   0x08048dea <+1188>:	mov    %eax,%ebx
+   0x08048dec <+1190>:	movl   $0x8049220,(%esp)
+   0x08048df3 <+1197>:	call   0x8048604 <ft_des>
+   0x08048df8 <+1202>:	mov    %ebx,0x4(%esp)
+   0x08048dfc <+1206>:	mov    %eax,(%esp)
+   0x08048dff <+1209>:	call   0x8048530 <fputs@plt>
+   0x08048e04 <+1214>:	jmp    0x8048e2f <main+1257>
+   0x08048e06 <+1216>:	mov    0x804b060,%eax
+   0x08048e0b <+1221>:	mov    %eax,%edx
+   0x08048e0d <+1223>:	mov    $0x8049248,%eax
+   0x08048e12 <+1228>:	mov    %edx,0xc(%esp)
+   0x08048e16 <+1232>:	movl   $0x38,0x8(%esp)
+   0x08048e1e <+1240>:	movl   $0x1,0x4(%esp)
+   0x08048e26 <+1248>:	mov    %eax,(%esp)
+
+	 ...
+
+End of assembler dump.
+(gdb) break *0x08048982
+Breakpoint 1 at 0x8048982
+(gdb) run
+Starting program: /bin/getflag
+
+Breakpoint 1, 0x08048982 in main ()
+(gdb) jump *0x08048de5
+Continuing at 0x8048de5.
+7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
+[Inferior 1 (process 2525) exited normally]
+(gdb) q
+
+level14@SnowCrash:~$ su flag14
+Password:
+Congratulation. Type getflag to get the key and send it to me the owner of this livecd :)
+flag14@SnowCrash:~$ getflag
+Check flag.Here is your token : 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
+flag14@SnowCrash:~$

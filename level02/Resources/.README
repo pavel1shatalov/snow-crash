@@ -1,0 +1,38 @@
+guest:
+
+level02@SnowCrash:~$ ls
+level02.pcap
+
+host:
+
+$ scp -P 4242 level02@192.168.1.35:/home/user/level02/level02.pcap .
+
+chmod u+r level02.pcap
+
+------------------------------
+
+https://www.wireshark.org/#download
+
+wiresharck > file > open > level02.pcap
+
+> TCP Stream
+
+> Hex Dump
+
+------------------------------
+
+ft_wandr...NDRel.L0L ==> ft_waNDReL0L
+
+guest:
+
+level02@SnowCrash:~$ su flag02
+Password:
+Don't forget to launch getflag !
+
+flag02@SnowCrash:~$ getflag
+Check flag.Here is your token : kooda2puivaav1idi4f57q8iq
+
+flag02@SnowCrash:~$ su level03
+Password:
+
+level03@SnowCrash:~$
