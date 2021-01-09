@@ -1,38 +1,31 @@
-guest:
-
+Find .pcap file which is a sort of log file
 level02@SnowCrash:~$ ls
 level02.pcap
 
 host:
 
+Copy the file to your host
 $ scp -P 4242 level02@192.168.1.35:/home/user/level02/level02.pcap .
 
+provide needed rights to reed it from standalone tool
 chmod u+r level02.pcap
 
-------------------------------
 
+install wiresharck
 https://www.wireshark.org/#download
 
-wiresharck > file > open > level02.pcap
 
-> TCP Stream
-
+Open hexadecimal interpretation of a file
 > Hex Dump
 
-------------------------------
+figure out the password
 
 ft_wandr...NDRel.L0L ==> ft_waNDReL0L
 
-guest:
-
+log in to flag02
 level02@SnowCrash:~$ su flag02
 Password:
 Don't forget to launch getflag !
 
 flag02@SnowCrash:~$ getflag
 Check flag.Here is your token : kooda2puivaav1idi4f57q8iq
-
-flag02@SnowCrash:~$ su level03
-Password:
-
-level03@SnowCrash:~$
