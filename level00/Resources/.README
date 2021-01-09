@@ -1,32 +1,37 @@
-guest:
+Launch VM and look up for IP address
 
-ssh level00@192.168.1.35 -p 4242
+Connect to VM
+ssh level00@<your-ip-address> -p 4242
 
+Search from the root for any files matching user flag00 and stash stderr to /dev/null
 level00@SnowCrash:~$ find / -user flag00 2>/dev/null
+Expected output:
 /usr/sbin/john
 /rofs/usr/sbin/john
 
+Read the first text file
 level00@SnowCrash:~$ cat /usr/sbin/john
 cdiiddwpgswtgt
 
+Read the second text file
 level00@SnowCrash:~$ cat /rofs/usr/sbin/john
 cdiiddwpgswtgt
 
+Try to use them as a password
 level00@SnowCrash:~$ su flag00
 Password:
 su: Authentication failure
 level00@SnowCrash:~$
 
+Try to decode the found text with the caesar-cipher
 https://www.dcode.fr/caesar-cipher
 
+find the most appropriate variant with rot +15
 +15 nottoohardhere
 
+move to the next level with this password
 level00@SnowCrash:~$ su flag00
 Password:
 Don't forget to launch getflag !
 flag00@SnowCrash:~$ getflag
 Check flag.Here is your token : x24ti5gi3x0ol2eh4esiuxias
-
-flag00@SnowCrash:~$ su level01
-Password:
-level01@SnowCrash:~$

