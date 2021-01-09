@@ -11,23 +11,18 @@ d--x--x--x 1 root    users    340 Aug 30  2015 ..
 
 level13@SnowCrash:~$ ./level13
 UID 2013 started us but we we expect 4242
+
 level13@SnowCrash:~$ ltrace ./level13
-__libc_start_main(0x804858c, 1, 0xbffff7a4, 0x80485f0, 0x8048660 <unfinished ...>
-getuid()                                                                                            = 2013
-getuid()                                                                                            = 2013
+__libc_start_main(0x804858c, 1, 0xbffff6e4, 0x80485f0, 0x8048660 <unfinished ...>
+getuid()                                                                                                                     = 2013
+getuid()                                                                                                                     = 2013
 printf("UID %d started us but we we expe"..., 2013UID 2013 started us but we we expect 4242
-)                                                 = 42
+)                                                                          = 42
 exit(1 <unfinished ...>
 +++ exited (status 1) +++
 
 level13@SnowCrash:~$ echo $UID
 2013
-
-------------------------------
-
-https://sourceware.org/gdb/current/onlinedocs/gdb/Machine-Code.html 
-
-------------------------------
 
 guest:
 
